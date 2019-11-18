@@ -1,0 +1,22 @@
+{
+  "name": "fission-ghost",
+  "description": "Ghost 2.x with compatability to deploy on Heroku",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bmann/fission-ghost.git"
+  },
+  "private": true,
+  "dependencies": {
+    "casper": "github:tryghost/Casper#2.10.0",
+    "ghost": "^2.22.0",
+    "ghost-storage-adapter-s3": "^2.8.0",
+    "mysql": "^2.14.1"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
