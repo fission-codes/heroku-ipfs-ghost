@@ -1,4 +1,4 @@
-# [Ghost](https://github.com/TryGhost/Ghost) on [Heroku](http://heroku.com)
+# Ghost Blogging on Heroku with IPFS
 
 Ghost is a free, open, simple blogging platform. Visit the project's website at <http://ghost.org>, or read the docs on <http://support.ghost.org>.
 
@@ -6,7 +6,7 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 
 ## Ghost v2.x
 
-This has been forked from the [Ghost 1.x on Heroky by cobyism](https://github.com/cobyism/ghost-on-heroku). The Deploy button should "just work" -- you'll need to add S3 credentials after the fact if you want file uploads to work.
+This has been forked from the [Ghost 1.x on Heroku by cobyism](https://github.com/cobyism/ghost-on-heroku). The **Deploy button** should "just work" -- you'll need to add S3 credentials after the fact if you want file uploads to work.
 
 - Edited the `package.json` to include the newest 2.x Ghost release and the newest Casper and S3 adapter modules
 - Removed `package-lock.json` so that newest packages are used automatically
@@ -147,7 +147,9 @@ release: knex-migrator migrate --mgpath node_modules/ghost
 
 ## Problems?
 
-If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues). If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/bmann/fission-ghost).
+If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues).
+
+If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/fission-suite/heroku-ipfs-ghost).
 
 ## License
 
