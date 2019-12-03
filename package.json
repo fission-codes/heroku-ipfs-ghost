@@ -1,20 +1,20 @@
 {
-  "name": "fission-ghost",
-  "description": "Ghost 2.x with compatability to deploy on Heroku",
+  "name": "heroku-ipfs-ghost",
+  "description": "Ghost 3.x with compatability to deploy on Heroku",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bmann/fission-ghost.git"
+    "url": "git://github.com/fission-suite/heroku-ipfs-ghost.git"
   },
   "private": true,
   "dependencies": {
-    "casper": "github:tryghost/Casper#2.10.0",
-    "ghost": "^2.22.0",
-    "ghost-storage-adapter-s3": "^2.8.0",
-    "mysql": "^2.14.1"
+    "casper": "github:tryghost/Casper#3.0.4",
+    "ghost": "~3.1.0",
+    "ghost-storage-adapter-s3": "~2.8.0",
+    "mysql": "~2.17.1"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "scripts": {
     "start": "node server.js"
