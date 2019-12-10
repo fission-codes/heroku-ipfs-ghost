@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 echo "Moving Storage Adapter"
-pwd
 
 ADAPTER="ghost-storage-adapter-ipfs"
 SRC="./node_modules/$ADAPTER/"
