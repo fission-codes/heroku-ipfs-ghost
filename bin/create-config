@@ -13,8 +13,7 @@ function createConfig() {
 
   if(!!process.env.FISSION_USERNAME && !!process.env.FISSION_PASSWORD) {
     fileStorage = true;
-    storageOptions = {};
-    storageOptions.auth = {
+    storageOptions = {
       username: process.env.FISSION_USERNAME,
       password: process.env.FISSION_PASSWORD
     };

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Moving Storage Adapter"
+pwd
+
+ADAPTER="ghost-storage-adapter-ipfs"
+SRC="./node_modules/$ADAPTER/"
+DEST="./node_modules/ghost/core/server/adapters/storage/"
+SYMLINK="./content/adapters/storage/$ADAPTER"
+
+mkdir -p $DEST
+mv $SRC $DEST
+rm $SYMLINK
