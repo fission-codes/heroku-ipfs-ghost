@@ -18,18 +18,6 @@
     "PUBLIC_URL": {
       "description": "The HTTPS URL of this app: either your custom domain or default 'herokuapp.com' hostname.",
       "value": "https://YOURAPPNAME.herokuapp.com"
-    },
-    "FISSION_USERNAME": {
-      "description": "Username for Fission account authorization",
-      "required": false
-    },
-    "FISSION_PASSWORD": {
-      "description": "Password for Fission account authorization",
-      "required": false
-    },
-    "FISSION_BASE_URL": {
-      "description": "URL path to Fisson Web API",
-      "required": false
     }
   }
 }
