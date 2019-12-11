@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-echo "Moving Storage Adapter"
+echo "Moving Storage Adapter for Production"
 
 ADAPTER="ghost-storage-adapter-ipfs"
 SRC="./node_modules/$ADAPTER/"
-DEST="./node_modules/ghost/core/server/adapters/storage/"
-SYMLINK="./content/adapters/storage/$ADAPTER"
+DEST="./content/adapters/storage/"
+SYMLINK="$DEST$ADAPTER"
 
-mkdir -p $DEST
-mv $SRC $DEST
+# Removes symbolic link
 rm $SYMLINK
+
+# Moves storage adapter
+mv $SRC $DEST
