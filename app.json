@@ -9,7 +9,10 @@
   "success_url": "/ghost",
   "addons": [
     "jawsdb",
-    "mailgun"
+    "mailgun",
+    {
+      "plan": "interplanetary-fission:test"
+    }
   ],
   "env": {
     "PUBLIC_URL": {
