@@ -7,8 +7,7 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 ## Ghost v3.x
 
 - Edited the `package.json` to include the newest 3.x Ghost release and the newest Casper theme
-- For file storage, uses the [IPFS storage adapter for Ghost](https://github.com/fission-suite/ghost-storage-adapter-ipfs) connected to the [Fission IPFS Add-on for Heroku](https://elements.heroku.com/addons/interplanetary-fission)
-- Removed `package-lock.json` so that newest packages are used automatically
+- For file storage, uses the [IPFS Storage adapter for Ghost](https://github.com/fission-suite/ghost-storage-adapter-ipfs) connected to the [Fission IPFS Add-on for Heroku](https://elements.heroku.com/addons/interplanetary-fission)
 
 ---
 
