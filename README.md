@@ -4,11 +4,11 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Ghost v2.x
+## Ghost v3.x
 
-This has been forked from the [Ghost 1.x on Heroku by cobyism](https://github.com/cobyism/ghost-on-heroku). The **Deploy button** should "just work" -- you'll need to add S3 credentials after the fact if you want file uploads to work.
+This has been forked from the [Ghost 1.x on Heroku by cobyism](https://github.com/cobyism/ghost-on-heroku). The **Deploy button** should "just work"!
 
-- Edited the `package.json` to include the newest 2.x Ghost release and the newest Casper and S3 adapter modules
+- Edited the `package.json` to include the newest 3.x Ghost release and the newest Casper and our very own [IPFS storage adapter](https://github.com/fission-suite/ghost-storage-adapter-ipfs)
 - Removed `package-lock.json` so that newest packages are used automatically
 
 ### Things you should know
@@ -28,41 +28,6 @@ If your Ghost app needs to support substantial traffic, then use a CDN add-on:
   * [Fastly](https://elements.heroku.com/addons/fastly)
   * [Edge](https://elements.heroku.com/addons/edge).
 
-#### Using with file uploads disabled
-
-Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with S3 file uploads disabled, you should leave all environment variables beginning with `S3_…` blank.
-
-#### Configuring S3 file uploads
-
-To configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
-
-- `S3_ACCESS_KEY_ID` and `S3_ACCESS_SECRET_KEY`: **Required if using S3 uploads**. These fields are the AWS key/secret pair needed to authenticate with Amazon S3. You must have granted this keypair sufficient permissions on the S3 bucket in question in order for S3 uploads to work.
-
-- `S3_BUCKET_NAME`: **Required if using S3 uploads**. This is the name you gave to your S3 bucket.
-
-- `S3_BUCKET_REGION`: **Required if using S3 uploads**. Specify the region the bucket has been created in, using slug format (e.g. `us-east-1`, `eu-west-1`). A full list of S3 regions is [available here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
-
-- `S3_ASSET_HOST_URL`: Optional, even if using S3 uploads. Use this variable to specify the S3 bucket URL in virtual host style, path style or using a custom domain. You should also include a trailing slash (example `https://my.custom.domain/`).  See [this page](http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) for details.
-
-Once your app is up and running with these variables in place, you should be able to upload images via the Ghost interface and they’ll be stored in Amazon S3. :sparkles:
-
-##### Provisioning an S3 bucket using an add-on
-
-If you’d prefer not to configure S3 manually, you can provision the [Bucketeer add-on](https://devcenter.heroku.com/articles/bucketeer)
-to get an S3 bucket (Bucketeer starts at $5/mo).
-
-To configure S3 via Bucketeer, leave all the S3 deployment fields blank and deploy your
-Ghost blog. Once your blog is deployed, run the following commands from your terminal:
-
-```bash
-# Provision an Amazon S3 bucket
-heroku addons:create bucketeer --app YOURAPPNAME
-
-# Additionally, the bucket's region must be set to formulate correct URLs
-# (Find the "Region" in your Bucketeer Add-on's web dashboard.)
-heroku config:set S3_BUCKET_REGION=us-east-1 --app YOURAPPNAME
-```
-
 ### How this works
 
 This repository is a [Node.js](https://nodejs.org) web application that specifies [Ghost as a dependency](https://docs.ghost.org/v1.0.0/docs/using-ghost-as-an-npm-module), and makes a deploy button available.
@@ -75,7 +40,7 @@ This repository is a [Node.js](https://nodejs.org) web application that specifie
 Optionally after deployment, to push Ghost upgrades or work with source code, clone this repo (or a fork) and connect it with the Heroku app:
 
 ```bash
-git clone https://github.com/bmann/fission-ghost
+git clone https://github.com/fission-suite/heroku-ipfs-ghost
 cd fission-ghost
 
 heroku git:remote -a YOURAPPNAME
@@ -100,7 +65,7 @@ See more about [deploying to Heroku with git](https://devcenter.heroku.com/artic
 
 ### Upgrading Ghost
 
-On each deployment, the Heroku Node/npm build process will **auto-upgrade Ghost to the newest 2.x version**. To prevent this behavior, use npm 5+ (or yarn) to create a lockfile.
+On each deployment, the Heroku Node/npm build process will **auto-upgrade Ghost to the newest 3.x version**. To prevent this behavior, use npm 5+ (or yarn) to create a lockfile.
 
 ```bash
 npm install
