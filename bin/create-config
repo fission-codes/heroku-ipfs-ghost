@@ -19,7 +19,11 @@ function createConfig() {
     };
 
     if(!!process.env.INTERPLANETARY_FISSION_URL) {
-      storageOptions.baseURL = process.env.INTERPLANETARY_FISSION_URL;
+      storageOptions.apiURL = process.env.INTERPLANETARY_FISSION_URL;
+    }
+
+    if(!!process.env.IPFS_GATEWAY_URL) {
+      storageOptions.gatewayURL = process.env.IPFS_GATEWAY_URL;
     }
 
     storage = {
