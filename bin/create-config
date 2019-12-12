@@ -11,15 +11,15 @@ var appRoot = path.join(__dirname, '..');
 function createConfig() {
   var fileStorage, storage, storageOptions;
 
-  if(!!process.env.FISSION_USERNAME && !!process.env.FISSION_PASSWORD) {
+  if(!!process.env.INTERPLANETARY_FISSION_USERNAME && !!process.env.INTERPLANETARY_FISSION_PASSWORD) {
     fileStorage = true;
     storageOptions = {
-      username: process.env.FISSION_USERNAME,
-      password: process.env.FISSION_PASSWORD
+      username: process.env.INTERPLANETARY_FISSION_USERNAME,
+      password: process.env.INTERPLANETARY_FISSION_PASSWORD
     };
 
-    if(!!process.env.FISSION_BASE_URL) {
-      storage.baseUrl = process.env.BASE_URL;
+    if(!!process.env.INTERPLANETARY_FISSION_URL) {
+      storageOptions.baseURL = process.env.INTERPLANETARY_FISSION_URL;
     }
 
     storage = {
