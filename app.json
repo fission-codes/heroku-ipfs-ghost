@@ -18,6 +18,10 @@
     "PUBLIC_URL": {
       "description": "The HTTPS URL of this app: either your custom domain or default 'herokuapp.com' hostname.",
       "value": "https://YOURAPPNAME.herokuapp.com"
+    },
+    "IPFS_GATEWAY_URL": {
+      "description": "The HTTPS URL of your prefered IPFS gateway.  Defaults to https://ipfs.io/ipfs",
+      "required": false
     }
   }
 }
