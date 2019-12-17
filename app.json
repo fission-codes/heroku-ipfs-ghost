@@ -20,7 +20,8 @@
       "value": "https://YOURAPPNAME.herokuapp.com"
     },
     "IPFS_GATEWAY_URL": {
-      "description": "The HTTPS URL of your prefered IPFS gateway.  Defaults to https://ipfs.io/ipfs",
+      "description": "The HTTPS URL of your prefered IPFS gateway (defaults to https://ipfs.io)",
+      "value": "https://ipfs.runfission.com",
       "required": false
     }
   }
