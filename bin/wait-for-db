@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-var mysql      = require('../node_modules/mysql');
-var envValues  = require('./common/env-values');
+const mysql     = require('../node_modules/mysql'),
+      envValues = require('./common/env-values');
 
 console.error(`Awaiting MySQL database…`);
 pingDatabaseUntilConnected();
 
 function pingDatabaseUntilConnected() {
-  var connection = mysql.createConnection(envValues.mysqlDatabaseUrl);
+  const connection = mysql.createConnection(envValues.mysqlDatabaseUrl);
   connection.query('SELECT 1', function (error, results, fields) {
     if (error) {
       console.error(`Database not yet available: ${error.message}`);
