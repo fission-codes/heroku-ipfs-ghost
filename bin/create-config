@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Ghost Configuration for Heroku
 
-var fs = require('fs');
-var path = require('path');
-var url = require('url');
+const fs = require('fs'),
+      path = require('path'),
+      url = require('url');
 
 var envValues = require('./common/env-values');
 var appRoot = path.join(__dirname, '..');
@@ -76,30 +76,26 @@ function getMysqlConfig(connectionUrl) {
     return {};
   }
 
-  var dbConfig = url.parse(connectionUrl);
+  const dbConfig = url.parse(connectionUrl);
   if (dbConfig == null) {
     return {};
   }
 
-  var dbAuth = dbConfig.auth ? dbConfig.auth.split(':') : [];
-  var dbUser = dbAuth[0];
-  var dbPassword = dbAuth[1];
+  const dbAuth = dbConfig.auth ? dbConfig.auth.split(':', 2) : [];
+  const [dbUser, dbPassword] = dbAuth;
 
-  if (dbConfig.pathname == null) {
-    var dbName = 'ghost';
-  } else {
-    var dbName = dbConfig.pathname.split('/')[1];
-  }
+  const dbName = (dbConfig.pathname == null) ? 'ghost' : dbConfig.pathname.split('/', 2)[1];
 
-  var dbConnection = {
+  const dbConnection = {
     host: dbConfig.hostname,
     port: dbConfig.port || '3306',
     user: dbUser,
     password: dbPassword,
     database: dbName
   };
+
   return dbConnection;
 }
 
-var configContents = JSON.stringify(createConfig(), null, 2);
+const configContents = JSON.stringify(createConfig(), null, 2);
 fs.writeFileSync(path.join(appRoot, 'config.production.json'), configContents);
