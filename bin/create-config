@@ -5,8 +5,8 @@ const fs = require('fs'),
       path = require('path'),
       url = require('url');
 
-var envValues = require('./common/env-values');
-var appRoot = path.join(__dirname, '..');
+const envValues = require('./common/env-values');
+const appRoot = path.join(__dirname, '..');
 
 function createConfig() {
   var fileStorage, storage, storageOptions;
@@ -35,7 +35,7 @@ function createConfig() {
     storage = {}
   }
 
-  config = {
+  const config = {
     url: process.env.PUBLIC_URL,
     logging: {
       level: "info",
@@ -72,19 +72,19 @@ function createConfig() {
 }
 
 function getMysqlConfig(connectionUrl) {
-  if (connectionUrl == null) {
+  if (connectionUrl === null) {
     return {};
   }
 
   const dbConfig = url.parse(connectionUrl);
-  if (dbConfig == null) {
+  if (dbConfig === null) {
     return {};
   }
 
   const dbAuth = dbConfig.auth ? dbConfig.auth.split(':', 2) : [];
   const [dbUser, dbPassword] = dbAuth;
 
-  const dbName = (dbConfig.pathname == null) ? 'ghost' : dbConfig.pathname.split('/', 2)[1];
+  const dbName = (dbConfig.pathname === null) ? 'ghost' : dbConfig.pathname.split('/', 2)[1];
 
   const dbConnection = {
     host: dbConfig.hostname,
