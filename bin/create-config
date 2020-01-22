@@ -9,11 +9,12 @@ const envValues = require('./common/env-values');
 const appRoot = path.join(__dirname, '..');
 
 function createConfig() {
-  var fileStorage, storage, storageOptions;
+  let fileStorage = false;
+  let storage = {};
 
   if(!!process.env.INTERPLANETARY_FISSION_USERNAME && !!process.env.INTERPLANETARY_FISSION_PASSWORD) {
     fileStorage = true;
-    storageOptions = {
+    let storageOptions = {
       username: process.env.INTERPLANETARY_FISSION_USERNAME,
       password: process.env.INTERPLANETARY_FISSION_PASSWORD
     };
@@ -27,12 +28,9 @@ function createConfig() {
     }
 
     storage = {
-      active: "ghost-storage-adapter-ipfs",
+      "active": "ghost-storage-adapter-ipfs",
       "ghost-storage-adapter-ipfs": storageOptions
     };
-  } else {
-    fileStorage = false
-    storage = {}
   }
 
   const config = {
