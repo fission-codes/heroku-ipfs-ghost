@@ -11,6 +11,16 @@ var appRoot = path.join(__dirname, '..');
 function createConfig() {
   var fileStorage, storage, storageOptions;
 
+  // When deploying from git rather then a Heroku deploy button, Heroku doesn't
+  // read app.json and doesn't set the environment variables configured there.
+  // The `PUBLIC_URL` envvar is required, so if it's missing we know app.json
+  // was skipped, and we read it explictly.
+  if (!process.env.PUBLIC_URL) {
+    const appJson = JSON.parse(fs.readFileSync(`${appRoot}/app.json`, 'utf8'));
+    process.env.PUBLIC_URL = appJson.env.PUBLIC_URL.value;
+    process.env.IPFS_GATEWAY_URL = appJson.env.IPFS_GATEWAY_URL.value;
+  }
+
   if(!!process.env.INTERPLANETARY_FISSION_USERNAME && !!process.env.INTERPLANETARY_FISSION_PASSWORD) {
     fileStorage = true;
     storageOptions = {
