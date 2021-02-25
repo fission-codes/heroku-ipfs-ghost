@@ -4,6 +4,7 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fission-suite/heroku-ipfs-ghost)
 
+![Screencast demoing deployment to Heroku via button above](https://demos.fission.app/fission-heroku-ipfs-ghost-2x.gif)
 ## Ghost v3.x
 
 - Edited the `package.json` to include the newest 3.x Ghost release and the newest Casper theme
