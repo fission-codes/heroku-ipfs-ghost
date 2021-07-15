@@ -11,6 +11,7 @@
     "casper": "github:tryghost/Casper#main",
     "lyra": "github:tryghost/Lyra#master",
     "ghost": "^4.7",
+    "ghost-storage-adapter-ipfs": "github:fission-suite/ghost-storage-adapter-ipfs",
     "ghost-storage-adapter-s3": "^2.8.0",
     "mysql": "^2.18.1"
   },
