@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "casper": "github:tryghost/Casper#3.1.2",
-    "ghost": "^3.41.6",
+    "ghost": "^4.15.0",
     "ghost-storage-adapter-ipfs": "github:fission-suite/ghost-storage-adapter-ipfs",
     "mysql": "^2.18.1"
   },
